@@ -22,6 +22,7 @@ defmodule GenomixerDnaTest do
 
   test "dna seq to protein" do
     assert to_protein("tttcccggg") == "PheProGly"
+    assert to_protein("atgcatccctttaat") == "MetHisProPheAsn"
   end
 
   test "reverse sequence" do

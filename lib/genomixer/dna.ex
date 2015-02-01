@@ -90,18 +90,4 @@ defmodule Genomixer.Dna do
 
   def reverse(seq), do: String.reverse(seq)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
