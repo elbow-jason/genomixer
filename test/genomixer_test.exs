@@ -89,4 +89,29 @@ defmodule GenomixerBwaTest do
                 "nana$ba"]
     assert ["banana$"] |> make_rotation |> sort == expected
   end
+
+  test "compression_string " do
+    input =    ["$banana",
+                "a$banan",
+                "ana$ban",
+                "anana$b",
+                "banana$",
+                "na$bana",
+                "nana$ba"]
+    expected = "annb$aa"
+    assert compression_string(input) == expected
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

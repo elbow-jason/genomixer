@@ -22,4 +22,10 @@ defmodule Genomixer.Bwa do
     Enum.sort(rotations)
   end
 
+  def compression_string(sorted) do
+    sorted
+    |> Enum.map(fn x -> String.last(x) end)
+    |> Enum.join
+  end
+
 end
