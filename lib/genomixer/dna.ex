@@ -81,7 +81,12 @@ defmodule Genomixer.Dna do
     Map.get(@to_amino_acid, String.to_atom(codon))
   end
 
-
+  def to_protein(seq) do
+    seq 
+    |> to_codons
+    |> Enum.map(fn codon -> codon |> codon_to_amino_acid end)
+    |> Enum.join
+  end
 
 
 

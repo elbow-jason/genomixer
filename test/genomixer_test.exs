@@ -19,4 +19,8 @@ defmodule GenomixerDnaTest do
   test "codon_to_amino_acid " do
     assert codon_to_amino_acid("ttt") == "Phe"
   end
+
+  test "dna seq to protein" do
+    assert to_protein("tttcccggg") == "PheProGly"
+  end
 end
