@@ -1,6 +1,6 @@
 defmodule GenomixerTest do
   use ExUnit.Case
-  # import Genomixer.Dna
+  import Genomixer
 
   test "the truth" do
     assert 1 + 1 == 2
@@ -9,10 +9,14 @@ end
 
 defmodule GenomixerDnaTest do
   use ExUnit.Case
+  import Genomixer.Dna
 
   test "to_codons turns dna seq into list of trigrams" do
     seq1 = "abcdefghijklmnop"
-    assert Genomixer.Dna.to_codons(seq1) == ["abc","def","ghi","jkl","mno","p"]
+    to_codons(seq1) == ["abc","def","ghi","jkl","mno","p"]
   end
 
+  test "codon_to_amino_acid " do
+    assert codon_to_amino_acid("ttt") == "Phe"
+  end
 end
