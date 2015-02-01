@@ -78,4 +78,15 @@ defmodule GenomixerBwaTest do
                                           "$banana",
                                           "banana$"]
   end
+
+  test "sort sorts rotations into order" do
+    expected = ["$banana",
+                "a$banan",
+                "ana$ban",
+                "anana$b",
+                "banana$",
+                "na$bana",
+                "nana$ba"]
+    assert ["banana$"] |> make_rotation |> sort == expected
+  end
 end

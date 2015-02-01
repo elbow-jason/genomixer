@@ -19,7 +19,7 @@ defmodule Genomixer.Bwa do
   end
 
   def sort(rotations) do
-    
+    Enum.sort(rotations)
   end
 
 end
