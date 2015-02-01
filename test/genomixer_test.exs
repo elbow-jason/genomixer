@@ -42,19 +42,29 @@ defmodule GenomixerAssemblerTest do
   end
 
   test "match returns acc (0) with empty frag1" do
-    assert match([], 'abc', 0) == 0
+    assert match_end([], 'abc', 0) == 0
   end
 
   test "match returns acc (0) with empty frag2" do
-    assert match('abc', [], 0) == 0
+    assert match_end('abc', [], 0) == 0
   end
 
   test "match returns acc (0) with total mismatch" do
-    assert match('abc', 'def', 0) == 0
+    assert match_end('abc', 'def', 0) == 0
   end
 
   test "match returns correct number of matching chars" do
-    assert match('abconetwothree', 'abcdef', 0) == 3
+    assert match_end('abconetwothree', 'abcdef', 0) == 3
   end
 
+end
+
+defmodule GenomixerBwaTest do
+  use ExUnit.Case
+  import Genomixer.Bwa
+
+
+  test "rotate rotates a string" do
+    assert rotate("banana$") == "$banana"
+  end
 end
