@@ -30,3 +30,15 @@ defmodule GenomixerDnaTest do
     assert "abcdef" |> reverse == "fedcba"
   end
 end
+
+
+defmodule GenomixerAssemblerTest do
+  use ExUnit.Case
+  import Genomixer.Assembler
+
+  test "prep fragment turns to to_char_list" do
+    seq1 = "abcdefghijklmnop"
+    prep_fragment(seq1) == 'abcdefghijklmnop'
+  end
+
+end
