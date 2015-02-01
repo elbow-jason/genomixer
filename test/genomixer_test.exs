@@ -41,4 +41,20 @@ defmodule GenomixerAssemblerTest do
     prep_fragment(seq1) == 'abcdefghijklmnop'
   end
 
+  test "match returns acc (0) with empty frag1" do
+    assert match([], 'abc', 0) == 0
+  end
+
+  test "match returns acc (0) with empty frag2" do
+    assert match('abc', [], 0) == 0
+  end
+
+  test "match returns acc (0) with total mismatch" do
+    assert match('abc', 'def', 0) == 0
+  end
+
+  test "match returns correct number of matching chars" do
+    assert match('abconetwothree', 'abcdef', 0) == 3
+  end
+
 end
