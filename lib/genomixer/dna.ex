@@ -88,8 +88,7 @@ defmodule Genomixer.Dna do
     |> Enum.join
   end
 
-
-
+  def reverse(seq), do: String.reverse(seq)
 
 
 
