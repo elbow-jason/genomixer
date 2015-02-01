@@ -8,14 +8,14 @@ defmodule Genomixer.Bwa do
   def make_rotation([head|tail]) do
     rotated = rotate(head)
     if Enum.member?(tail, rotated) do
-      tail
+      [head] ++ tail
     else
       make_rotation([rotated] ++ [head] ++ tail)
     end
   end
 
   def rotate(frag) do
-    String.last(frag) <>String.slice(frag, 0..-2)
+    String.last(frag) <> String.slice(frag, 0..-2)
   end
 
 
