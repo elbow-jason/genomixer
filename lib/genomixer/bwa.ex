@@ -18,5 +18,8 @@ defmodule Genomixer.Bwa do
     String.last(frag) <> String.slice(frag, 0..-2)
   end
 
+  def sort(rotations) do
+    
+  end
 
 end

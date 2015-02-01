@@ -70,5 +70,12 @@ defmodule GenomixerBwaTest do
 
   test "make_rotation gives a list of rotated fragments" do
     assert make_rotation(["cat$"]) == ["at$c", "t$ca", "$cat", "cat$"]
+    assert make_rotation(["banana$"]) == ["anana$b",
+                                          "nana$ba",
+                                          "ana$ban",
+                                          "na$bana",
+                                          "a$banan",
+                                          "$banana",
+                                          "banana$"]
   end
 end
