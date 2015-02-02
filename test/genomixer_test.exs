@@ -1,6 +1,6 @@
 defmodule GenomixerTest do
   use ExUnit.Case
-  import Genomixer
+  # import Genomixer
 
   test "the truth" do
     assert 1 + 1 == 2
@@ -13,7 +13,7 @@ defmodule GenomixerDnaTest do
 
   test "to_codons turns dna seq into list of trigrams" do
     seq1 = "abcdefghijklmnop"
-    to_codons(seq1) == ["abc","def","ghi","jkl","mno","p"]
+    assert to_codons(seq1) == ["abc","def","ghi","jkl","mno","p"]
   end
 
   test "codon_to_amino_acid " do
@@ -38,7 +38,7 @@ defmodule GenomixerAssemblerTest do
 
   test "prep fragment turns to to_char_list" do
     seq1 = "abcdefghijklmnop"
-    prep_fragment(seq1) == 'abcdefghijklmnop'
+    assert prep_fragment(seq1) == 'abcdefghijklmnop'
   end
 
   test "match returns acc (0) with empty frag1" do
@@ -100,6 +100,24 @@ defmodule GenomixerBwaTest do
                 "nana$ba"]
     expected = "annb$aa"
     assert compression_string(input) == expected
+  end
+
+  test "assign_order properly assigns order" do
+    input =    ["$banana",
+                "a$banan",
+                "ana$ban",
+                "anana$b",
+                "banana$",
+                "na$bana",
+                "nana$ba"]
+    expected = [{0, "$banana"},
+                {1, "a$banan"},
+                {2, "ana$ban"},
+                {3, "anana$b"},
+                {4, "banana$"},
+                {5, "na$bana"},
+                {6, "nana$ba"}]
+    assert assign_order(input, []) == expected
   end
 end
 

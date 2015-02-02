@@ -28,4 +28,9 @@ defmodule Genomixer.Bwa do
     |> Enum.join
   end
 
+  def assign_order([], acc), do: Enum.reverse(acc)
+  def assign_order([head|tail], acc) do
+    assign_order(tail, [{length(acc), head}] ++ acc)
+  end
+
 end
